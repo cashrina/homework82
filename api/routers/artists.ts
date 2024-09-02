@@ -1,5 +1,5 @@
 import express from 'express';
-import Artist from "../models/Artist";
+import Artists from "../models/Artists";
 import {ArtistMutation} from "../type";
 import mongoose from "mongoose";
 import {imagesUpload} from "../multer";
@@ -8,7 +8,7 @@ const artistRouter = express.Router();
 
 artistRouter.get('/', async (_req, res, next) => {
     try {
-        const artist = await Artist.find();
+        const artist = await Artists.find();
         return res.send(artist);
 
     } catch (e) {
@@ -24,7 +24,7 @@ artistRouter.post('/',imagesUpload.single('image'), async (req, res, next) => {
             info: req.body.info,
         }
 
-        const artist = new Artist(artistMutation);
+        const artist = new Artists(artistMutation);
         await artist.save();
         return res.send(artist);
     } catch (e) {

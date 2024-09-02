@@ -2,7 +2,7 @@ import * as mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-const ArtistSchema = new Schema({
+const ArtistsSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -17,5 +17,5 @@ const ArtistSchema = new Schema({
     }
 });
 
-const Artist = mongoose.model('Artist', ArtistSchema);
-export default Artist;
+const Artists = mongoose.model('Artists', ArtistsSchema);
+export default Artists;
