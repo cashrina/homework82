@@ -10,12 +10,13 @@ const AlbumsSchema = new Schema({
     },
     artist: {
         type: Schema.Types.ObjectId,
-        ref: "Artist",
+        ref: "Artists",
         validate: async (value: Types.ObjectId) => {
-            const category = await Artists.findById(value);
-            return Boolean(category);
+            const album = await Artists.findById(value);
+            return Boolean(album);
         },
         message: 'Artists doesnt exist const',
+        required: true,
     },
     year: {
         type: Date,
@@ -24,5 +25,5 @@ const AlbumsSchema = new Schema({
     image: String,
 });
 
-const Albums = mongoose.model('Album', AlbumsSchema);
+const Albums = mongoose.model('Albums', AlbumsSchema);
 export default Albums;
