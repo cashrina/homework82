@@ -27,7 +27,7 @@ albumRouter.get('/:id', async (req, res, next) => {
        const album = await Albums.findById(req.params.id);
 
        if (album === null) {
-           return res.status(404).send({ error: 'Product not found' });
+           return res.status(404).send({ error: 'Album not found' });
        }
        return res.send(album);
     } catch (error) {

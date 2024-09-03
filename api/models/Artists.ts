@@ -9,11 +9,9 @@ const ArtistsSchema = new Schema({
     },
     image: {
         type: String,
-        required: false,
     },
     info: {
         type: String,
-        required: false,
     }
 });
 
